@@ -11,4 +11,8 @@ func main() {
 	fmt.Println(nums)
 	// check sorted
 	fmt.Println(sort.IntsAreSorted(nums))
+
+	// sort reverse
+	sort.Sort(sort.Reverse(sort.IntSlice(nums)))
+	fmt.Println(nums)
 }
