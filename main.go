@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sort"
+	"strconv"
 )
 
 func main() {
@@ -15,4 +16,11 @@ func main() {
 	// sort reverse
 	sort.Sort(sort.Reverse(sort.IntSlice(nums)))
 	fmt.Println(nums)
+
+	// search
+	index := sort.Search(len(nums), func(i int) bool {
+		return nums[i] <= 4
+	})
+	fmt.Println("index:" + strconv.Itoa(index))
+	fmt.Println("value:" + strconv.Itoa(nums[index]))
 }
