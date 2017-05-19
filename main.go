@@ -17,10 +17,19 @@ func main() {
 	sort.Sort(sort.Reverse(sort.IntSlice(nums)))
 	fmt.Println(nums)
 
-	// search
+	// search desc
 	index := sort.Search(len(nums), func(i int) bool {
 		return nums[i] <= 4
 	})
+	fmt.Println("index:" + strconv.Itoa(index))
+	fmt.Println("value:" + strconv.Itoa(nums[index]))
+
+	// search asc
+	sort.Ints(nums)
+	index = sort.Search(len(nums), func(i int) bool {
+		return nums[i] >= 8
+	})
+	fmt.Println(nums)
 	fmt.Println("index:" + strconv.Itoa(index))
 	fmt.Println("value:" + strconv.Itoa(nums[index]))
 }
