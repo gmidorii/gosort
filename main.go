@@ -32,4 +32,17 @@ func main() {
 	fmt.Println(nums)
 	fmt.Println("index:" + strconv.Itoa(index))
 	fmt.Println("value:" + strconv.Itoa(nums[index]))
+
+	numArray := []int{10, 4, 5, 19, 30}
+	i := searchAsc(numArray, 11)
+	fmt.Println(numArray)
+	fmt.Println(i)
+}
+
+func searchAsc(nums []int, x int) int {
+	sort.Ints(nums)
+	i := sort.Search(len(nums), func(i int) bool {
+		return nums[i] >= x
+	})
+	return i
 }
