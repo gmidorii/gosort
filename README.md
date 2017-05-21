@@ -19,3 +19,9 @@ type Interface interface {
   - f()がtrue になる最初のindexを返却する
   - 一致を探すことも、ある数値以上の値を探すことも可能
   - 配列は、ソートしておく必要がある
+
+- sort.Slice(slice interface{}, less func(i, j int) bool)
+  - less関数で定義された順にソートされる(go1.8.1以上)
+  - sort.Interfaceを実装していなくてもソートが可能となっている
+  - stable sortを保証していない
+    - sort.SliceStableを利用することで保証される

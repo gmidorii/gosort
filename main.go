@@ -6,6 +6,11 @@ import (
 	"strconv"
 )
 
+type Person struct {
+	Name string
+	Age  int
+}
+
 func main() {
 	nums := []int{4, 3, 2, 10, 8}
 	sort.Ints(nums)
@@ -37,6 +42,31 @@ func main() {
 	i := searchAsc(numArray, 11)
 	fmt.Println(numArray)
 	fmt.Println(i)
+
+	persons := []Person{
+		Person{
+			Name: "Hoge",
+			Age:  10,
+		},
+		Person{
+			Name: "Tom",
+			Age:  5,
+		},
+		Person{
+			Name: "Tom Jr",
+			Age:  5,
+		},
+		Person{
+			Name: "MaxBob",
+			Age:  25,
+		},
+		Person{
+			Name: "Jackson",
+			Age:  7,
+		},
+	}
+	sortSliceByName(persons)
+	sortSliceByAge(persons)
 }
 
 func searchAsc(nums []int, x int) int {
@@ -45,4 +75,18 @@ func searchAsc(nums []int, x int) int {
 		return nums[i] >= x
 	})
 	return i
+}
+
+func sortSliceByName(persons []Person) {
+	sort.Slice(persons, func(i, j int) bool {
+		return persons[i].Name < persons[j].Name
+	})
+	fmt.Println("By Name: ", persons)
+}
+
+func sortSliceByAge(persons []Person) {
+	sort.Slice(persons, func(i, j int) bool {
+		return persons[i].Age < persons[j].Age
+	})
+	fmt.Println("By Age: ", persons)
 }
