@@ -67,6 +67,9 @@ func main() {
 	}
 	sortSliceByName(persons)
 	sortSliceByAge(persons)
+
+	// sort Test
+	sortTest(nums)
 }
 
 func searchAsc(nums []int, x int) int {
@@ -89,4 +92,15 @@ func sortSliceByAge(persons []Person) {
 		return persons[i].Age < persons[j].Age
 	})
 	fmt.Println("By Age: ", persons)
+}
+
+func sortTest(nums []int) {
+	fmt.Println(nums)
+	maxDepth := 0
+	// i >>= 1 は右に1ビットシフト
+	// ここでは, 5(101) -> 2(010) -> 1(001) とシフトしている
+	for i := len(nums); i > 0; i >>= 1 {
+		maxDepth++
+	}
+	fmt.Println(maxDepth)
 }
